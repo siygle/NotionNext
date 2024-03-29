@@ -13,7 +13,7 @@ function requestAd() {
         if (!adStatus || adStatus !== 'done') {
           adsbygoogle.push(ads[i])
         }
-      } catch (e) { }
+      } catch (e) {}
     }
   }
 }
@@ -25,7 +25,9 @@ function requestAd() {
 export default function GoogleAdsense() {
   const initGoogleAdsense = () => {
     loadExternalResource(
-      `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig('ADSENSE_GOOGLE_ID')}`,
+      `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig(
+        'ADSENSE_GOOGLE_ID'
+      )}`,
       'js'
     ).then(url => {
       setTimeout(() => {
@@ -59,13 +61,14 @@ const AdSlot = ({ type = 'show' }) => {
   if (type === 'in-article') {
     return (
       <ins
-        className='adsbygoogle'
+        className="adsbygoogle"
         style={{ display: 'block', textAlign: 'center' }}
-        data-ad-layout='in-article'
-        data-ad-format='fluid'
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
         data-adtest={siteConfig('ADSENSE_GOOGLE_TEST') ? 'on' : 'off'}
         data-ad-client={siteConfig('ADSENSE_GOOGLE_ID')}
-        data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_IN_ARTICLE')}></ins>
+        data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_IN_ARTICLE')}
+      ></ins>
     )
   }
 
@@ -73,13 +76,14 @@ const AdSlot = ({ type = 'show' }) => {
   if (type === 'flow') {
     return (
       <ins
-        className='adsbygoogle'
-        data-ad-format='fluid'
-        data-ad-layout-key='-5j+cz+30-f7+bf'
+        className="adsbygoogle"
+        data-ad-format="fluid"
+        data-ad-layout-key="-5j+cz+30-f7+bf"
         style={{ display: 'block' }}
         data-adtest={siteConfig('ADSENSE_GOOGLE_TEST') ? 'on' : 'off'}
         data-ad-client={siteConfig('ADSENSE_GOOGLE_ID')}
-        data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_FLOW')}></ins>
+        data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_FLOW')}
+      ></ins>
     )
   }
 
@@ -87,25 +91,27 @@ const AdSlot = ({ type = 'show' }) => {
   if (type === 'native') {
     return (
       <ins
-        className='adsbygoogle'
+        className="adsbygoogle"
         style={{ display: 'block', textAlign: 'center' }}
-        data-ad-format='autorelaxed'
+        data-ad-format="autorelaxed"
         data-adtest={siteConfig('ADSENSE_GOOGLE_TEST') ? 'on' : 'off'}
         data-ad-client={siteConfig('ADSENSE_GOOGLE_ID')}
-        data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_NATIVE')}></ins>
+        data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_NATIVE')}
+      ></ins>
     )
   }
 
   //  展示广告
   return (
     <ins
-      className='adsbygoogle'
+      className="adsbygoogle"
       style={{ display: 'block' }}
       data-ad-client={siteConfig('ADSENSE_GOOGLE_ID')}
       data-adtest={siteConfig('ADSENSE_GOOGLE_TEST') ? 'on' : 'off'}
       data-ad-slot={siteConfig('ADSENSE_GOOGLE_SLOT_AUTO')}
-      data-ad-format='auto'
-      data-full-width-responsive='true'></ins>
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
   )
 }
 
@@ -128,9 +134,18 @@ const AdEmbed = () => {
           const newInsElement = document.createElement('ins')
           newInsElement.className = 'adsbygoogle w-full py-1'
           newInsElement.style.display = 'block'
-          newInsElement.setAttribute('data-ad-client', siteConfig('ADSENSE_GOOGLE_ID'))
-          newInsElement.setAttribute('data-adtest', siteConfig('ADSENSE_GOOGLE_TEST') ? 'on' : 'off')
-          newInsElement.setAttribute('data-ad-slot', siteConfig('ADSENSE_GOOGLE_SLOT_AUTO'))
+          newInsElement.setAttribute(
+            'data-ad-client',
+            siteConfig('ADSENSE_GOOGLE_ID')
+          )
+          newInsElement.setAttribute(
+            'data-adtest',
+            siteConfig('ADSENSE_GOOGLE_TEST') ? 'on' : 'off'
+          )
+          newInsElement.setAttribute(
+            'data-ad-slot',
+            siteConfig('ADSENSE_GOOGLE_SLOT_AUTO')
+          )
           newInsElement.setAttribute('data-ad-format', 'auto')
           newInsElement.setAttribute('data-full-width-responsive', 'true')
 
